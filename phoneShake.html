@@ -128,7 +128,9 @@ $(document).on('ready', function() {
 					$(".box").addClass("animation");
 					setTimeout(function(){
 						console.log(111111)
-						var bgCor = randomColor();
+						one:function(){
+							var bgCor = randomColor();
+						}
 						$("body").css({background:bgCor});
 						$(".box").removeClass("animation")
 					}, 1500);
