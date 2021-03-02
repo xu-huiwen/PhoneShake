@@ -96,17 +96,19 @@ $(document).on('ready', function() {
 			},false);
 		}else if(isiOS){
 			//IOS
-			DeviceMotionEvent.requestPermission().then(function (state) {
-			    if ('granted' === state) {
-			        window.addEventListener('devicemotion', function () {
-			           // you can do something
-			           alert("IOS可以摇一摇")
-			        }, false);
-			    }else {
-			        alert('apply permission state: ' + state);
-			    }
-			}).catch(function(err){
-			    alert('error: ' + err);
+			$("body").click(function(){
+				DeviceMotionEvent.requestPermission().then(function (state) {
+				    if ('granted' === state) {
+				        window.addEventListener('devicemotion', function () {
+				           // you can do something
+				           alert("IOS可以摇一摇")
+				        }, false);
+				    }else {
+				        alert('apply permission state: ' + state);
+				    }
+				}).catch(function(err){
+				    alert('error: ' + err);
+				})
 			})
 		}
 	}else{
