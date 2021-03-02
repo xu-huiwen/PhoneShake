@@ -115,11 +115,11 @@ $(document).on('ready', function() {
 	if (window.DeviceMotionEvent){
 		var speed = 25;
 		var x = t = z = lastX = lastY = lastZ = 0;
-		alert('支持摇一摇事件');
+		//alert('支持摇一摇事件');
 		if(isAndroid){
 			//安卓
 			window.addEventListener('devicemotion',function () {
-				alert("安卓可以摇一摇")
+				console.log("安卓可以摇一摇")
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
@@ -141,7 +141,7 @@ $(document).on('ready', function() {
 				    if ('granted' === state) {
 				        window.addEventListener('devicemotion', function () {
 				            // you can do something
-				            alert("IOS可以摇一摇")
+				            console.log("IOS可以摇一摇")
 				            var acceleration = event.accelerationIncludingGravity;
 							x = acceleration.x;
 							y = acceleration.y;
