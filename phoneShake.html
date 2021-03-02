@@ -126,7 +126,9 @@ $(document).on('ready', function() {
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
 					//摇一摇时触发的事件
 					$(".box").addClass("animation");
-					var bgCor = randomColor();
+					if($(".box").hasClass("animation")){
+						var bgCor = randomColor();
+					}
 					setTimeout(function(){
 						$("body").css({background:bgCor});
 						$(".box").removeClass("animation")
@@ -149,7 +151,9 @@ $(document).on('ready', function() {
 							if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
 								//摇一摇时触发的事件
 								$(".box").addClass("animation");
-								var bgCor = randomColor();
+								if($(".box").hasClass("animation")){
+									var bgCor = randomColor();
+								}
 								setTimeout(function(){
 									$("body").css({background:bgCor});
 									$(".box").removeClass("animation")
