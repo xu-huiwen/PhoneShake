@@ -125,9 +125,10 @@ $(document).on('ready', function() {
 				y = acceleration.y;
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
 					//摇一摇时触发的事件
-					$(".box").addClass("animation")
+					$(".box").addClass("animation");
+					var bgCor = randomColor();
 					setTimeout(function(){
-						$("body").css({background:randomColor()});
+						$("body").css({background:bgCor});
 						$(".box").removeClass("animation")
 					}, 1500);
 				};
@@ -147,9 +148,10 @@ $(document).on('ready', function() {
 							y = acceleration.y;
 							if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
 								//摇一摇时触发的事件
-								$(".box").addClass("animation")
+								$(".box").addClass("animation");
+								var bgCor = randomColor();
 								setTimeout(function(){
-									$("body").css({background:randomColor()});
+									$("body").css({background:bgCor});
 									$(".box").removeClass("animation")
 								}, 1500);
 							};
