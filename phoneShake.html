@@ -119,7 +119,7 @@ $(document).on('ready', function() {
 		if(isAndroid){
 			//安卓
 			window.addEventListener('devicemotion',function () {
-				console.log("安卓可以摇一摇")
+				//console.log("安卓可以摇一摇")
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
@@ -141,7 +141,7 @@ $(document).on('ready', function() {
 				    if ('granted' === state) {
 				        window.addEventListener('devicemotion', function () {
 				            // you can do something
-				            console.log("IOS可以摇一摇")
+				            //console.log("IOS可以摇一摇")
 				            var acceleration = event.accelerationIncludingGravity;
 							x = acceleration.x;
 							y = acceleration.y;
