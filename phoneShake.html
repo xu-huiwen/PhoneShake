@@ -127,8 +127,8 @@ $(document).on('ready', function() {
 					//摇一摇时触发的事件
 					$(".box").addClass("animation");
 					setTimeout(function(){
+						console.log(111111)
 						var bgCor = randomColor();
-						console.log(bgCor)
 						$("body").css({background:bgCor});
 						$(".box").removeClass("animation")
 					}, 1500);
