@@ -150,9 +150,7 @@ $(document).on('ready', function() {
 			},false);
 		}else if(isiOS){
 			//IOS
-//			$("body").click(function(){
-				
-				setTimeout(function(){
+			$("body").click(function(){
 					DeviceMotionEvent.requestPermission().then(function (state) {
 					    if ('granted' === state) {
 					        window.addEventListener('devicemotion', function () {
@@ -177,13 +175,8 @@ $(document).on('ready', function() {
 					}).catch(function(err){
 					    alert('error: ' + err);
 					})
-				},1000)
-				
-				
-				
-				
-				
-//			})
+
+			})
 		}
 
 	}else{
