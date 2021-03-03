@@ -121,7 +121,7 @@ $(document).on('ready', function() {
 		}
 		flag=false;
 		
-		
+		var bgCor = randomColor();
 		
 		
 		
@@ -140,7 +140,7 @@ $(document).on('ready', function() {
 					$(".box").addClass("animation");
 					setTimeout(function(){
 						console.log(111111)
-						var bgCor = randomColor();
+						
 						$("body").css({background:bgCor});
 						$(".box").removeClass("animation");
 						flag = true;
