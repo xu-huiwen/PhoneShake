@@ -122,18 +122,34 @@ $(document).on('ready', function() {
 			//安卓
 			window.addEventListener('devicemotion',function () {
 				//console.log("安卓可以摇一摇")
+				flag = false;
 				console.log(111111111111111)
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
-					//摇一摇时触发的事件
-					$(".box").addClass("animation");
-					var bgCor = randomColor();
-					setTimeout(function(){
-						$("body").css({background:bgCor});
-						$(".box").removeClass("animation");
-					}, 1500);
+					
+					if(!flag){
+						//摇一摇时触发的事件
+						$(".box").addClass("animation");
+						var bgCor = randomColor();
+						setTimeout(function(){
+							$("body").css({background:bgCor});
+							$(".box").removeClass("animation");
+						}, 1500);
+						flag = true;
+			        	return;
+			        }
+//			        flag=false;
+					
+					
+					
+					
+					
+					
+					
+					
+					
 				};
 				lastX = x;
 				lastY = y;
