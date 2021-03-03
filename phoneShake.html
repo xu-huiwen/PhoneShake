@@ -121,9 +121,11 @@ $(document).on('ready', function() {
 			//安卓
 			window.addEventListener('devicemotion',function () {
 				if(!flag){
+					console.log(2222222)
 					return;
 			        }
 				flag=false;
+				console.log(333333)
 				//console.log("安卓可以摇一摇")
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
