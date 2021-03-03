@@ -107,6 +107,16 @@ $(document).on('ready', function() {
 		return "#" + color;
 	}
 	
+	//函数
+	function BgColor(){
+		$(".box").addClass("animation");
+		var bgCor = randomColor();
+		setTimeout(function(){
+			$("body").css({background:bgCor});
+			$(".box").removeClass("animation");
+		}, 1500);
+	}
+	
 	//终端判断
 	var u = navigator.userAgent;
 	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -117,7 +127,6 @@ $(document).on('ready', function() {
 		var speed = 25;
 		var x = t = z = lastX = lastY = lastZ = 0;
 		var flag = true;
-		var once = 1;
 		//alert('支持摇一摇事件');
 		if(isAndroid){
 			//安卓
@@ -126,21 +135,15 @@ $(document).on('ready', function() {
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
-				
-				if(flag == true && once == 1){
-					flag == false , once == 0;
 					if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
 						//摇一摇时触发的事件
-						$(".box").addClass("animation");
-						var bgCor = randomColor();
-						setTimeout(function(){
-							$("body").css({background:bgCor});
-							$(".box").removeClass("animation");
-						}, 1500);
+						if(flag == true){
+							BgColor();
+							flag = false;
+						}
 					};
 					lastX = x;
-					lastY = y;
-				}
+
 			},false);
 		}
 //		else if(isiOS){
