@@ -120,17 +120,17 @@ $(document).on('ready', function() {
 		if(isAndroid){
 			//安卓
 			window.addEventListener('devicemotion',function () {
-				if(!flag){
-					console.log(2222222)
-					return;
-			        }
-				flag=false;
-				console.log(333333)
 				//console.log("安卓可以摇一摇")
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
+					if(!flag){
+						console.log(2222222)
+						return;
+					}
+					flag=false;
+					console.log(333333)
 					//摇一摇时触发的事件
 					$(".box").addClass("animation");
 					setTimeout(function(){
