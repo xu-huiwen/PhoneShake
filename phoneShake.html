@@ -107,94 +107,71 @@ $(document).on('ready', function() {
 		return "#" + color;
 	}
 	
-	//
+	//终端判断
 	var u = navigator.userAgent;
 	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 	
+	//摇一摇手机
 	if (window.DeviceMotionEvent){
 		var speed = 25;
 		var x = t = z = lastX = lastY = lastZ = 0;
 		var flag = true;
-		if(!flag){
-			return;
-		}
-		flag=false;
-		
-		var bgCor = randomColor();
-		
-		
-		
-
 		//alert('支持摇一摇事件');
 		if(isAndroid){
 			//安卓
 			window.addEventListener('devicemotion',function () {
 				//console.log("安卓可以摇一摇")
+				console.log(111111111111111)
 				var acceleration = event.accelerationIncludingGravity;
 				x = acceleration.x;
 				y = acceleration.y;
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
-					console.log(333333)
 					//摇一摇时触发的事件
 					$(".box").addClass("animation");
+					var bgCor = randomColor();
 					setTimeout(function(){
-						console.log(111111)
-						
 						$("body").css({background:bgCor});
 						$(".box").removeClass("animation");
-						flag = true;
 					}, 1500);
 				};
 				lastX = x;
 				lastY = y;
 			},false);
-		}else if(isiOS){
-			//IOS
-			$("body").click(function(){
-				DeviceMotionEvent.requestPermission().then(function (state) {
-				    if ('granted' === state) {
-				        window.addEventListener('devicemotion', function () {
-				            // you can do something
-				            //console.log("IOS可以摇一摇")
-				            var acceleration = event.accelerationIncludingGravity;
-							x = acceleration.x;
-							y = acceleration.y;
-							if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
-								//摇一摇时触发的事件
-								$(".box").addClass("animation");
-								setTimeout(function(){
-									var bgCor = randomColor();
-									console.log(bgCor)
-									$("body").css({background:bgCor});
-									$(".box").removeClass("animation")
-								}, 1500);
-							};
-							lastX = x;
-							lastY = y;
-				
-				        }, false);
-				    }else {
-				        alert('apply permission state: ' + state);
-				    }
-				}).catch(function(err){
-				    alert('error: ' + err);
-				})
-			})
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
+//		else if(isiOS){
+//			//IOS
+//			$("body").click(function(){
+//				DeviceMotionEvent.requestPermission().then(function (state) {
+//				    if ('granted' === state) {
+//				        window.addEventListener('devicemotion', function () {
+//				            // you can do something
+//				            //console.log("IOS可以摇一摇")
+//				            var acceleration = event.accelerationIncludingGravity;
+//							x = acceleration.x;
+//							y = acceleration.y;
+//							if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
+//								//摇一摇时触发的事件
+//								$(".box").addClass("animation");
+//								setTimeout(function(){
+//									var bgCor = randomColor();
+//									console.log(bgCor)
+//									$("body").css({background:bgCor});
+//									$(".box").removeClass("animation")
+//								}, 1500);
+//							};
+//							lastX = x;
+//							lastY = y;
+//				
+//				        }, false);
+//				    }else {
+//				        alert('apply permission state: ' + state);
+//				    }
+//				}).catch(function(err){
+//				    alert('error: ' + err);
+//				})
+//			})
+//		}
 
 	}else{
 		alert('不支持摇一摇事件');
