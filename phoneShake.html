@@ -116,6 +116,16 @@ $(document).on('ready', function() {
 		var speed = 25;
 		var x = t = z = lastX = lastY = lastZ = 0;
 		var flag = true;
+		if(!flag){
+			return;
+		}
+		flag=false;
+		
+		
+		
+		
+		
+
 		//alert('支持摇一摇事件');
 		if(isAndroid){
 			//安卓
@@ -125,11 +135,6 @@ $(document).on('ready', function() {
 				x = acceleration.x;
 				y = acceleration.y;
 				if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
-					if(!flag){
-						console.log(2222222)
-						return;
-					}
-					flag=false;
 					console.log(333333)
 					//摇一摇时触发的事件
 					$(".box").addClass("animation");
@@ -177,6 +182,20 @@ $(document).on('ready', function() {
 				})
 			})
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}else{
 		alert('不支持摇一摇事件');
 	}	
